@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+    <h1>Тест по информатике</h1>
+    <table border="1" id="q1">
+        <tr>
+            <td rowspan="3">1</td>
+            <td colspan="4" class="task">
+              1. Что является основным ингредиентом итальянского блюда паста карбонара?
+            </td>
+        </tr>
+        <tr>
+            <td class="variant">1) Сыр пармезан и гуанчиале</td>
+            <td class="variant">2) Креветки</td>
+            <td class="variant">3) Оливковое масло</td>
+            <td class="variant">4) Томатный соус</td>
+        </tr>
+        <tr>
+            <td colspan="5">
+                <input id="a1" type="text" class="answer" placeholder="Ответ" />
+            </td>
+        </tr>
+    </table>
+    <button onclick="Check()">Проверить</button>
+
+        <table border="1" id="q2">
+        <tr>
+            <td rowspan="3">1</td>
+            <td colspan="4" class="task">
+                2.  Какой овощ традиционно используют в русской кухне для приготовления винегрета?
+            </td>
+        </tr>
+        <tr>
+            <td class="variant">1) Баклажаны</td>
+            <td class="variant">2) Свёкла</td>
+            <td class="variant">3) Цветная капуста</td>
+            <td class="variant">4) Тыква</td>
+        </tr>
+        <tr>
+            <td colspan="5">
+                <input id="a2" type="text" class="answer" placeholder="Ответ" />
+            </td>
+        </tr>
+    </table>
+    <button onclick="Check()">Проверить</button>
+
+    <p>Разработчик:
+       Ясырев Артемий
+    </p>
+
+    <script>
+
+
+        function Check() {
+            let score=0;
+            let q1 = document.getElementById('q1');
+            let a1 = document.getElementById('a1');
+            if (a1.value == '1') {
+                q1.style.border = '1px solid green ';
+            }
+            else {
+                q1.style.border = '1px solid red';
+            }
+        
+            let q2 = document.getElementById('q2');
+            let a2 = document.getElementById('a2');
+            if (a2.value == '2') {
+                q2.style.border = '1px solid green ';
+            }
+            else {
+                q2.style.border = '1px solid red';
+            }
+        
+        }
+    </script>
