@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vue.js Счетчик</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+  <div id="app">
+    <p>Счетчик: {{ count }}</p>
+    <button @click="increment">Увеличить (+5)</button>
+    <button @click="decrement">Уменьшить (-1)</button>
+  </div>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    
+    #app {
+      text-align: center;
+      font-size: 2em; /* Увеличенный шрифт */
+    }
+  </style>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        count: 0
+      },
+      methods: {
+        // Изменяем метод инкрементации, теперь добавляем сразу +5
+        increment() {
+          this.count += 5;
+        },
+        decrement() {
+          this.count--;
+        }
+      }
+    });
+  </script>
+</body>
+</html>
+
+

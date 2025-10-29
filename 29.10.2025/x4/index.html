@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue.js Условное отображение</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&display=swap">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #fbfaff;
+      font-family: 'Lato', sans-serif;
+    }
+
+    #app {
+      text-align: center;
+      padding: 2rem;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      animation-duration: 0.5s;
+      animation-fill-mode: both;
+    }
+
+    .visible {
+      animation-name: fadeIn;
+    }
+
+    .hidden {
+      visibility: hidden;
+      animation-name: fadeOut;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes fadeOut {
+      from {opacity: 1;}
+      to {opacity: 0;}
+    }
+
+    button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <p :class="{ visible: showMessage, hidden: !showMessage }">Сообщение видно!</p>
+  <button @click="toggleMessage">Переключить</button>
+</div>
+
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    showMessage: true
+  },
+  methods: {
+    toggleMessage() {
+      this.showMessage = !this.showMessage;
+    }
+  }
+});
+</script>
+</body>
+</html>

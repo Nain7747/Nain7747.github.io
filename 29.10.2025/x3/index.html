@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue.js Блокнот</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-image: linear-gradient(to right bottom, #ffb8c4, #ffdfb4); /* Градиент фона */
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    #app {
+      max-width: 400px;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    ul.notebook-style {
+      list-style-type: none;
+      padding: 0;
+      margin-bottom: 1rem;
+    }
+
+    .notebook-style li {
+      position: relative;
+      padding: 0.5rem 0;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .notebook-style li::before {
+      content: '\\u2022';
+      color: #ccc;
+      font-size: 1.5rem;
+      margin-right: 0.5rem;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      color: white;
+      background-color: #ff847c;
+      transition: all 0.3s ease-in-out;
+    }
+
+    button:hover,
+    button:focus {
+      background-color: #ff6347;
+      outline: none;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <h1>Список покупок</h1>
+  <ul class="notebook-style">
+    <li v-for="item in items">{{ item }}</li>
+  </ul>
+  <button @click="addItem">Добавить новый пункт</button>
+</div>
+
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    items: ['Яблоко', 'Банан', 'Вишня'],
+    newItem: ''
+  },
+  methods: {
+    addItem() {
+      if (this.newItem.trim()) {
+        this.items.push(this.newItem);
+        this.newItem = '';
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>
